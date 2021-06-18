@@ -35,10 +35,10 @@ const onSubmit = (e) =>{
         <h2>Build login form here</h2>
         <form onSubmit={onSubmit}>
           <label>Username:
-            <input type='text' name='username' value={data.username} onChange={handleChange} data-testid="username" />
+            <input id='username' type='text' name='username' value={data.username} onChange={handleChange} data-testid="username" />
           </label>
           <label>Password:
-            <input type='text' name='password' value={data.password} onChange={handleChange} data-testid="password" />
+            <input id='password' type='text' name='password' value={data.password} onChange={handleChange} data-testid="password" />
           </label>
           <button>Log In!</button>
         </form>

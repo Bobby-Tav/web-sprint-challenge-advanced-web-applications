@@ -26,6 +26,7 @@ const BubblePage = () => {
         setColors(res)
       })
     })
+    toggleEdit(false)
   };
 
   const deleteColor = (colorToDelete) => {
