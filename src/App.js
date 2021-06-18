@@ -10,6 +10,8 @@ function App() {
   const handleLogoutClick = e =>{
     e.preventDefault();
     localStorage.removeItem('token');
+    window.location.href = "/";
+    
   }
   return (
     <Router>
