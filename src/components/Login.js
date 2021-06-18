@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useHistory } from "react";
+import React, { useState} from "react";
 import axios from 'axios';
 
 const Login = (props) => {
@@ -20,7 +20,7 @@ const onSubmit = (e) =>{
   axios.post('http://localhost:5000/api/login',data)
   .then(res =>{
     localStorage.setItem('token',res.data.payload)
-    props.history.push('')
+    props.history.push('/bubbles-page')
   })
   .catch(err=>{
     console.log('my error',err)
