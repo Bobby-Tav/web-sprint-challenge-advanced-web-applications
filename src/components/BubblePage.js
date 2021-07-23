@@ -22,6 +22,7 @@ const BubblePage = () => {
 
   const saveEdit = (editColor) => {
     editColorService(`colors/${editColor.id}`,editColor,(res)=>{
+      console.log(res)
       fetchColorService('colors',(res)=>{
         setColors(res)
       })
