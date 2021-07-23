@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
-// import { editColorService, deleteColorService } from '../services/colorServices';
+import { editColorService, deleteColorService } from '../services/colorServices';
 import fetchColorService from '../services/fetchColorService';
 
 const BubblePage = () => {
@@ -21,9 +21,22 @@ const BubblePage = () => {
   };
 
   const saveEdit = (editColor) => {
+    editColorService(`colors/${editColor.id}`,editColor,(res)=>{
+      console.log(res)
+      fetchColorService('colors',(res)=>{
+        setColors(res)
+      })
+    })
+    toggleEdit(false)
+
   };
 
   const deleteColor = (colorToDelete) => {
+    deleteColorService(`colors/${colorToDelete.id}`, res=>{
+      fetchColorService('colors',(res)=>{
+        setColors(res)
+      })
+    })
   };
 
   return (
