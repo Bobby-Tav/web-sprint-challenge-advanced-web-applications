@@ -10,14 +10,33 @@ const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
 
+  useEffect(()=>{
+    fetchColorService('colors',(res)=>{
+      setColors(res)
+    })
+  },[]);
+
   const toggleEdit = (value) => {
     setEditing(value);
   };
 
   const saveEdit = (editColor) => {
+    editColorService(`colors/${editColor.id}`,editColor,(res)=>{
+      console.log(res)
+      fetchColorService('colors',(res)=>{
+        setColors(res)
+      })
+    })
+    toggleEdit(false)
   };
 
   const deleteColor = (colorToDelete) => {
+    deleteColorService(`colors/${colorToDelete.id}`, res=>{
+      fetchColorService('colors',(res)=>{
+        setColors(res)
+      })
+    })
+
   };
 
   return (
